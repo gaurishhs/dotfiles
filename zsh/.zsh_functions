@@ -1,0 +1,19 @@
+function p() {
+    if [ -n "$1" ]; then
+        cd ~/projects/$1
+    else
+        cd ~/projects
+    fi
+}
+
+function mkd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+function server() {
+    if [ -n "$1" ]; then
+        python3 -m http.server "$1"
+    else
+        python3 -m http.server
+    fi
+}

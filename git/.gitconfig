@@ -1,0 +1,6 @@
+[user]
+	signingkey = 3B5B83FDFD61D3C5
+	name = Gaurish Sethia
+	email = gaurishsethia@yahoo.com
+[commit]
+	gpgsign = true
