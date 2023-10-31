@@ -9,8 +9,11 @@ fi
 fpath=($HOME/.local/share/zsh/completions $fpath)
 
 # Load and initialize compinit
-autoload compinit
-compinit -i
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 export GPG_TTY=$(tty)
 export EDITOR="nvim"
@@ -35,5 +38,11 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$PATH:/Users/gaurish/.spicetify
 
+export PATH=$PATH:/Users/gaurish/.cargo/bin
+export PATH="$PATH:$(brew --prefix llvm@16)/bin"
+export LDFLAGS="$LDFLAGS -L$(brew --prefix llvm@16)/lib"
+export CPPFLAGS="$CPPFLAGS -I$(brew --prefix llvm@16)/include"
+
 [ -f .zsh_aliases ] && source .zsh_aliases
 [ -f .zsh_functions ] && source .zsh_functions
+export PATH="/usr/loca/opt/postgresql@15/bin:$PATH"
