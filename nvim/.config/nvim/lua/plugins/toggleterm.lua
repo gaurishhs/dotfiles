@@ -5,5 +5,12 @@ return {
     config = function()
       require("toggleterm").setup()
     end,
+    keys = {
+      {
+        "<leader>h",
+        "<cmd>ToggleTerm<cr>",
+        desc = "Toggle terminal",
+      }
+    },
   },
 }
