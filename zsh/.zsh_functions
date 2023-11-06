@@ -6,6 +6,15 @@ function p() {
     fi
 }
 
+_p() {
+    local -a projects
+    projects=($(ls ~/projects))
+    _describe 'projects' projects
+}
+
+compdef _p p
+
+
 function mkd() {
     mkdir -p "$1" && cd "$1"
 }

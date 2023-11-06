@@ -38,4 +38,5 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Time Out$" manage=off
 yabai -m rule --add app="^console$" manage=off
 yabai -m rule --add app="^Harvest$" manage=off
+yabai -m rule --add app="^Figma$" manage=off
 yabai -m rule --add app="^Private Internet Access$" manage=off

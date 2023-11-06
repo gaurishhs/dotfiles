@@ -5,8 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Setup custom completions dir
-fpath=($HOME/.local/share/zsh/completions $fpath)
+fpath=(
+  ~/.local/share/zsh/completions 
+  $fpath
+)
 
 # Load and initialize compinit
 autoload -Uz compinit
@@ -17,6 +19,11 @@ compinit -C
 
 export GPG_TTY=$(tty)
 export EDITOR="nvim"
+export PATH=$PATH:/Users/gaurish/.spicetify
+export PATH=$PATH:/Users/gaurish/.cargo/bin
+export PATH="$PATH:$(brew --prefix llvm@16)/bin"
+export LDFLAGS="$LDFLAGS -L$(brew --prefix llvm@16)/lib"
+export CPPFLAGS="$CPPFLAGS -I$(brew --prefix llvm@16)/include"
 
 # pnpm
 export PNPM_HOME="/Users/gaurish/Library/pnpm"
@@ -26,23 +33,14 @@ case ":$PATH:" in
 esac
 # pnpm end
 export PATH="/usr/local/opt/node@18/bin:$PATH"
-# bun completions
-[ -s "/Users/gaurish/.bun/_bun" ] && source "/Users/gaurish/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH=$PATH:/Users/gaurish/.spicetify
-
-export PATH=$PATH:/Users/gaurish/.cargo/bin
-export PATH="$PATH:$(brew --prefix llvm@16)/bin"
-export LDFLAGS="$LDFLAGS -L$(brew --prefix llvm@16)/lib"
-export CPPFLAGS="$CPPFLAGS -I$(brew --prefix llvm@16)/include"
 
 [ -f .zsh_aliases ] && source .zsh_aliases
 [ -f .zsh_functions ] && source .zsh_functions
-export PATH="/usr/loca/opt/postgresql@15/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
